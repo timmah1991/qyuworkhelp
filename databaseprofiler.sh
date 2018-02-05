@@ -1,5 +1,6 @@
 #!/bin/bash
 # Use like this: ./databaseprofiler.sh path/to/file.txt numberofrowstoanalyze
+#TODO: add a quick bit up here to count the number of columns in CSV automatically
 
         for i in `seq 1 $2`;
         do
