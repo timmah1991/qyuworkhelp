@@ -1,15 +1,15 @@
 #!/bin/bash
-# Use like this: ./databaseprofiler.sh path/to/file.txt numberofcolumnstoanalyze maxrows
+# Use like this: ./databaseprofiler.sh path/to/file.txt numberofcolumnstoanalyze #rowstoanalyze
 #TODO: add a quick bit up here to count the number of columns in CSV automatically
-#TODO: add a "max row sample count" parameter to help with performance  ~~ DONE
+
+
+            head -$3 $1 >> tempcsv.txt
 
         for i in `seq 1 $2`;
         do
-                echo "Starting Column #"$i" out of "$2 
-                #cat $1 | awk -F "\"*,\"*" '{print $'$i'}' | grep -c '[A-Za-z]'
-                COLUMN_HEADER=$(cat $1 | awk -F "\"*,\"*" 'NR==1{print $'$i'}')
-                #if [[ $(cat $1 | sed -n 1,$3p | awk -F "\"*,\"*" '{print $'$i'}' | grep -c '[A-Za-z]') > "1" ]]; then
-                if [[ $(head -$3 $1 | awk -F "\"*,\"*" '{print $'$i'}' | grep -c '[A-Za-z]') > "1" ]]; then
+                echo "Starting Column #"$i" out of "$2" from file "$1
+                COLUMN_HEADER=$(cat tempcsv.txt | awk -F "\"*,\"*" 'NR==1{print $'$i'}')
+                if [[ $(cat tempcsv.txt | awk -F "\"*,\"*" '{print $'$i'}' | grep -c '[A-Za-z]') > "1" ]]; then
                     #echo "NON-NUMERIC FOUND AT COLUMN #"$i" WITH COLUMN HEADER "$COLUMN_HEADER
                     echo $COLUMN_HEADER >> non_numeric.txt
                 else
@@ -43,3 +43,4 @@
         cat numeric.txt
         rm numeric.txt
         rm non_numeric.txt
+        rm tempcsv.txt
