@@ -8,7 +8,8 @@
                 echo "Starting Column #"$i" out of "$2 
                 #cat $1 | awk -F "\"*,\"*" '{print $'$i'}' | grep -c '[A-Za-z]'
                 COLUMN_HEADER=$(cat $1 | awk -F "\"*,\"*" 'NR==1{print $'$i'}')
-                if [[ $(cat $1 | sed -n 1,$3p | awk -F "\"*,\"*" '{print $'$i'}' | grep -c '[A-Za-z]') > "1" ]]; then
+                #if [[ $(cat $1 | sed -n 1,$3p | awk -F "\"*,\"*" '{print $'$i'}' | grep -c '[A-Za-z]') > "1" ]]; then
+                if [[ $(head -$3 $1 | awk -F "\"*,\"*" '{print $'$i'}' | grep -c '[A-Za-z]') > "1" ]]; then
                     #echo "NON-NUMERIC FOUND AT COLUMN #"$i" WITH COLUMN HEADER "$COLUMN_HEADER
                     echo $COLUMN_HEADER >> non_numeric.txt
                 else
