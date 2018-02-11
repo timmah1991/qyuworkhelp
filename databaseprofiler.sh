@@ -12,7 +12,7 @@
                 if [[ $(cat tempcsv.txt | awk -F "\"*,\"*" '{print $'$i'}' | grep -c '[A-Za-z]') > "1" ]]; then
                     #echo "NON-NUMERIC FOUND AT COLUMN #"$i" WITH COLUMN HEADER "$COLUMN_HEADER
                     echo $COLUMN_HEADER >> non_numeric.txt
-                    echo "The non-numeric conversion for column #"$i" was caused by the string data found in "$(cat tempcsv.txt | awk -F "\"*,\"*" '{print $'$i'}' | grep '[A-Za-z]')
+                    echo "The non-numeric conversion for column #"$COLUMN_HEADER" was caused by the string data found in "$(cat tempcsv.txt | awk -F "\"*,\"*" '{print $'$i'}' | grep '[A-Za-z]')
                 else
                     #echo "NUMBERIC ONLY CHARACTERS IN COLUMN #"$i" WITH COLUMN HEADER "$COLUMN_HEADER
                     echo $COLUMN_HEADER >> numeric.txt
