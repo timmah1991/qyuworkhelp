@@ -1,8 +1,10 @@
-2016.AUG.Monthly.Auction.NetworkModel_PeakWD
-12DSB_2017_SUM1 pwver15
-15DSA_2016_WIN2_TPIT_Final_10152014
-15DSB_2021_SUM1_Final_10152014
-WECC Apr 2015_25hw1a-PWver18
-2024SUM_2013Series_Final_PWver15
-MMWG_2025SUM_2014Series_Final-PWver15
-MMWG_2026WIN_2015Series_Final
+2016.AUG.Monthly.Auction.NetworkModel_PeakWD            (^\d\d\d\d).*(\D\D$)
+12DSB_2017_SUM1 pwver15                                 (^\d\d[A-Z][A-Z][A-Z]\_).*(pwver\d\d$)
+15DSA_2016_WIN2_TPIT_Final_10152014                     (^\d\d[A-Z][A-Z][A-Z]\_).*TPIT.*(\d\d\d\d\d\d\d\d$)
+15DSB_2021_SUM1_Final_10152014                          (^\d\d[A-Z][A-Z][A-Z]\_).*(\d\d\d\d\d\d\d\d$)
+WECC Apr 2015_25hw1a-PWver18                            (^WECC).*(PWver\d\d$)
+2024SUM_2013Series_Final_PWver15                        (^\d\d\d\d[^.]).*(PWver\d\d$)
+MMWG_2025SUM_2014Series_Final-PWver15                   (^MMWG).*(PWver\d\d$)
+MMWG_2026WIN_2015Series_Final                           (^MMWG).*(\D$)
+
+
