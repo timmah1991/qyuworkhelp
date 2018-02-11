@@ -7,4 +7,3 @@ WECC Apr 2015_25hw1a-PWver18                            (^WECC).*(PWver\d\d$)
 MMWG_2025SUM_2014Series_Final-PWver15                   (^MMWG).*(PWver\d\d$)
 MMWG_2026WIN_2015Series_Final                           (^MMWG).*(\D$)
 
-
